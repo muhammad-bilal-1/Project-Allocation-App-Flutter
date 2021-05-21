@@ -2,6 +2,4 @@
 Project Allocation App in flutter
 # COMMIT #1
 # Added
- Home screen
- Splash Screen
- Admin_panel page
+ Home screen,Splash Screen,Admin_panel page
