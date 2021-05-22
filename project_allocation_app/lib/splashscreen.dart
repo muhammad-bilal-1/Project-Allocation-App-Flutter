@@ -58,7 +58,8 @@ class _splashscreenState extends State<splashscreen> {
             child: CircleAvatar(
               backgroundColor: Colors.white,
               radius: 85,
-              backgroundImage: AssetImage('images/Mufassalprofile.png'),
+              backgroundImage:
+                  AssetImage('img/65ba488626025cff82f091336fbf94bb.gif'),
             ),
           ),
           SizedBox(
@@ -71,7 +72,7 @@ class _splashscreenState extends State<splashscreen> {
             ),
           ),
           Text(
-            'Name : Mufassal Hussain\n Reg#: FA17-BCS-049',
+            'Group',
             style: TextStyle(
               fontSize: 30.0,
               color: Colors.red,
