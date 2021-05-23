@@ -2,6 +2,10 @@
  Home screen,Splash Screen,Admin_panel page
 # Admin Panel Main View Completed
 ![eVESHL2F8m](https://user-images.githubusercontent.com/79256743/119220368-a441be00-bb03-11eb-858e-c391a993f69c.gif)
+
+# Admin Panel Main View Completed with Student/Teacher Add & View
+https://user-images.githubusercontent.com/77444239/119260580-e1ce4600-bbec-11eb-8589-aaba4aa148a0.mp4
+
 # COMMIT #2
 # Added
 # Teacher Panel Main View Completed
