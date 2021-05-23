@@ -1,4 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:project_allocation_app/Teacher/View_student.dart';
+import 'Teacher/Add Teacher.dart';
+import 'Teacher/Add_student.dart';
+import 'Teacher/View_teacher.dart';
+import 'package:random_string/random_string.dart';
 
 class admin_page extends StatelessWidget {
   static final String path = "lib/admin_panel/dash3.dart";
@@ -279,7 +285,10 @@ class admin_page extends StatelessWidget {
                       ],
                     ),
                     onPressed: () {
-                      null;
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => AddTr()),
+                      );
                     },
                   ),
                 ),
@@ -298,7 +307,10 @@ class admin_page extends StatelessWidget {
                       ],
                     ),
                     onPressed: () {
-                      null;
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => ViewTr()),
+                      );
                     },
                   ),
                 ),
@@ -323,7 +335,10 @@ class admin_page extends StatelessWidget {
                       ],
                     ),
                     onPressed: () {
-                      null;
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => AddStd()),
+                      );
                     },
                   ),
                 ),
@@ -342,7 +357,10 @@ class admin_page extends StatelessWidget {
                       ],
                     ),
                     onPressed: () {
-                      null;
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => ViewStd()),
+                      );
                     },
                   ),
                 ),
