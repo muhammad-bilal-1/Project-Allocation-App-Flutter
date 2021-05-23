@@ -36,10 +36,13 @@ class admin_page extends StatelessWidget {
                         children: <Widget>[
                           Icon(
                             Icons.home,
-                            color: Colors.black,
+                            color: Colors.white,
                           ),
                           Text(
                             'Home',
+                            style: TextStyle(
+                              color: Colors.white,
+                            ),
                           ),
                         ],
                       ),
@@ -65,10 +68,13 @@ class admin_page extends StatelessWidget {
                         children: <Widget>[
                           Icon(
                             Icons.person_add,
-                            color: Colors.black,
+                            color: Colors.white,
                           ),
                           Text(
                             'Refer',
+                            style: TextStyle(
+                              color: Colors.white,
+                            ),
                           ),
                         ],
                       ),
@@ -94,10 +100,13 @@ class admin_page extends StatelessWidget {
                         children: <Widget>[
                           Icon(
                             Icons.history,
-                            color: Colors.black,
+                            color: Colors.white,
                           ),
                           Text(
                             'History',
+                            style: TextStyle(
+                              color: Colors.white,
+                            ),
                           ),
                         ],
                       ),
@@ -123,10 +132,13 @@ class admin_page extends StatelessWidget {
                         children: <Widget>[
                           Icon(
                             Icons.person_outline,
-                            color: Colors.black,
+                            color: Colors.white,
                           ),
                           Text(
                             'Profile',
+                            style: TextStyle(
+                              color: Colors.white,
+                            ),
                           ),
                         ],
                       ),
@@ -268,7 +280,7 @@ class admin_page extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            padding: const EdgeInsets.symmetric(horizontal: 0.0),
             child: Row(
               children: <Widget>[
                 Expanded(
@@ -280,7 +292,7 @@ class admin_page extends StatelessWidget {
                           color: Colors.redAccent,
                           icon: Icons.add_box,
                           // title: "Test",
-                          data: "Add Teachers",
+                          data: "Add Teacher",
                         ),
                       ],
                     ),
@@ -292,7 +304,7 @@ class admin_page extends StatelessWidget {
                     },
                   ),
                 ),
-                const SizedBox(width: 16.0),
+                const SizedBox(width: 10.0),
                 Expanded(
                   child: FlatButton(
                     child: Column(
@@ -319,7 +331,7 @@ class admin_page extends StatelessWidget {
           ),
           const SizedBox(height: 20.0),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            padding: const EdgeInsets.symmetric(horizontal: 0.0),
             child: Row(
               children: <Widget>[
                 Expanded(
@@ -330,7 +342,7 @@ class admin_page extends StatelessWidget {
                         _buildTile(
                           color: Colors.blue,
                           icon: Icons.add_chart,
-                          data: "Add Students",
+                          data: "Add Student",
                         ),
                       ],
                     ),
@@ -351,8 +363,7 @@ class admin_page extends StatelessWidget {
                         _buildTile(
                           color: Colors.orange,
                           icon: Icons.view_array_outlined,
-//title: "Test",
-                          data: "View Students",
+                          data: "View Student",
                         ),
                       ],
                     ),
