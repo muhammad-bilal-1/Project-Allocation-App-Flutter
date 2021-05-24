@@ -1,161 +1,282 @@
 import 'package:flutter/material.dart';
 
 class projectlist extends StatelessWidget {
-  static final String path = "lib/view_projects.dart";
-
+  final String image1 = "img/1.jpg";
+  final TextStyle whiteText = TextStyle(color: Colors.white);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        iconTheme: IconThemeData(color: Theme.of(context).primaryColor),
-        titleSpacing: 0.0,
-        elevation: 0.5,
-        backgroundColor: Colors.white,
-        title: Text(
-          "Projects List",
-          style: TextStyle(
-              color: Colors.black, fontWeight: FontWeight.bold, fontSize: 20.0),
-          textAlign: TextAlign.center,
+      body: _buildStats(context),
+    );
+  }
+
+  Widget _buildStats(BuildContext context) {
+    return Scaffold(
+        body: ListView(
+      children: [
+        _buildHeader(),
+        PaginatedDataTable(
+          header: Text('Projects List'),
+          rowsPerPage: 2,
+          columns: [
+            DataColumn(label: Text('#')),
+            DataColumn(label: Text('Title')),
+            DataColumn(label: Text('Project Description')),
+            DataColumn(label: Text('Remaining Seats')),
+            DataColumn(label: Text('Total Marks')),
+            DataColumn(label: Text('Grouping Details')),
+            DataColumn(label: Text('Selection Status')),
+          ],
+          source: _DataSource(context),
         ),
-      ),
-      body: Lists(),
+      ],
+    ));
+  }
+
+  Stack _buildHeader() {
+    return Stack(
+      children: <Widget>[
+        ClipPath(
+          clipper: WaveClipper2(),
+          child: Container(
+            child: Column(),
+            width: double.infinity,
+            height: 250,
+            decoration: BoxDecoration(
+                gradient: LinearGradient(
+                    colors: [Color(0x22ff3a5a), Color(0x22fe494d)])),
+          ),
+        ),
+        ClipPath(
+          clipper: WaveClipper3(),
+          child: Container(
+            child: Column(),
+            width: double.infinity,
+            height: 250,
+            decoration: BoxDecoration(
+                gradient: LinearGradient(
+                    colors: [Color(0x44ff3a5a), Color(0x44fe494d)])),
+          ),
+        ),
+        ClipPath(
+          clipper: WaveClipper1(),
+          child: Container(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                SizedBox(
+                  height: 40,
+                ),
+                ListTile(
+                  title: Text(
+                    "Teacher Dashboard",
+                    style: whiteText.copyWith(
+                        fontWeight: FontWeight.bold, fontSize: 20.0),
+                  ),
+                  trailing: CircleAvatar(
+                    radius: 25.0,
+                    backgroundImage: AssetImage(image1),
+                  ),
+                ),
+                const SizedBox(height: 10.0),
+                Padding(
+                  padding: const EdgeInsets.only(left: 16.0),
+                  child: Text(
+                    "Teacher Name",
+                    style: whiteText.copyWith(
+                      fontSize: 18.0,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 5.0),
+                Padding(
+                  padding: const EdgeInsets.only(left: 16.0),
+                  child: Text(
+                    "Lecturer at CUI,Vehari",
+                    style: whiteText,
+                  ),
+                ),
+              ],
+            ),
+            width: double.infinity,
+            height: 250,
+            decoration: BoxDecoration(
+                gradient: LinearGradient(
+                    colors: [Color(0xffff3a5a), Color(0xfffe494d)])),
+          ),
+        ),
+      ],
     );
   }
 }
 
-class Item {
-  final String title;
-  final String description;
-  final String date;
-  final String t_marks;
-  final String group_size;
-  final String image;
+class _Row {
+  _Row(
+    this.valueA,
+    this.valueB,
+    this.valueC,
+    this.valueD,
+    this.valueE,
+    this.valueF,
+    this.valueG,
+  );
 
-  Item(
-      {this.title,
-      this.description,
-      this.date,
-      this.t_marks,
-      this.group_size,
-      this.image});
+  final int valueA;
+  final String valueB;
+  final String valueC;
+  final int valueD;
+  final int valueE;
+  final String valueF;
+  final String valueG;
+
+  bool selected = false;
 }
 
-class Lists extends StatelessWidget {
-  final List<Item> _data = [
-    Item(
-        title: 'Title: Stock Price Prediction',
-        description: "Description: A smart way to invest in trading stock",
-        date: "dd/mm/year",
-        t_marks: "Total Marks: 100",
-        group_size: "4",
-        image:
-            "https://images.pexels.com/photos/672142/pexels-photo-672142.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"),
-    Item(
-        title: 'Title: Stock Price Prediction',
-        description: "Description: A smart way to invest in trading stock",
-        date: "dd/mm/year",
-        t_marks: "Total Marks: 100",
-        group_size: "4",
-        image:
-            "https://images.pexels.com/photos/1736222/pexels-photo-1736222.jpeg?cs=srgb&dl=adult-adventure-backpacker-1736222.jpg&fm=jpg"),
-    Item(
-        title: 'Title: Stock Price Prediction',
-        description: "Description: A smart way to invest in trading stock",
-        date: "dd/mm/year",
-        t_marks: "Total Marks: 100",
-        group_size: "4",
-        image:
-            "https://images.pexels.com/photos/62403/pexels-photo-62403.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"),
-  ];
+class _DataSource extends DataTableSource {
+  _DataSource(this.context) {
+    _rows = <_Row>[
+      _Row(
+        1,
+        'Home Automation using Android for Aged and Handicap Persons\nSupervisor Email: noureen@vu.edu.pk',
+        'Project File\nDue Date of Selection: Mon 10 May, 2021',
+        9,
+        100,
+        'Group Size: 2\nDue Date of Grouping: Mon 17 May, 2021',
+        'Not Selected',
+      ),
+      _Row(
+        2,
+        'Control and Monitoring of a Remote Network in Client/Server environment\nSupervisor Email: asimmehmood@vu.edu.pk',
+        'Project File\nDue Date of Selection: Mon 10 May, 2021',
+        0,
+        100,
+        'Group Size: 2\nDue Date of Grouping: Mon 17 May, 2021',
+        'Not Selected',
+      ),
+    ];
+  }
+
+  final BuildContext context;
+  List<_Row> _rows;
+
+  int _selectedCount = 0;
 
   @override
-  Widget build(BuildContext context) {
-    return ListView.builder(
-      padding: EdgeInsets.all(6),
-      itemCount: _data.length,
-      itemBuilder: (BuildContext context, int index) {
-        Item item = _data[index];
-        return Card(
-          elevation: 3,
-          child: Row(
-            children: <Widget>[
-              Container(
-                height: 125,
-                width: 110,
-                padding:
-                    EdgeInsets.only(left: 0, top: 10, bottom: 70, right: 20),
-                decoration: BoxDecoration(
-                    image: DecorationImage(
-                        image: NetworkImage(item.image), fit: BoxFit.cover)),
-                child: item.group_size == null
-                    ? Container()
-                    : Container(
-                        color: Colors.black45,
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: <Widget>[
-                            Text(
-                              item.group_size,
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.normal),
-                            ),
-                            Text(
-                              "Group Size",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.normal),
-                            ),
-                          ],
-                        ),
-                      ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text(
-                      item.title,
-                      style: TextStyle(
-                          color: Colors.black45,
-                          fontWeight: FontWeight.w700,
-                          fontSize: 17),
-                    ),
-                    Text(
-                      item.description,
-                      style: TextStyle(fontSize: 14, color: Colors.black87),
-                    ),
-                    Text(
-                      item.t_marks,
-                      style: TextStyle(fontSize: 14, color: Colors.black87),
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Row(
-                      children: <Widget>[
-                        Text(
-                          item.date,
-                          style: TextStyle(fontSize: 13),
-                        ),
-                        SizedBox(
-                          width: 5,
-                        ),
-                        Text(
-                          "Date",
-                          style: TextStyle(fontSize: 13),
-                        ),
-                      ],
-                    )
-                  ],
-                ),
-              )
-            ],
-          ),
-        );
-      },
+  DataRow getRow(int index) {
+    assert(index >= 0);
+    if (index >= _rows.length) return null;
+    final row = _rows[index];
+    return DataRow.byIndex(
+      index: index,
+      selected: row.selected,
+      // onSelectChanged: (value) {
+      // if (row.selected != value) {
+      //   _selectedCount += value ? 1 : -1;
+      //   assert(_selectedCount >= 0);
+      //   row.selected = value;
+      //   notifyListeners();
+      // }
+      // },
+      cells: [
+        DataCell(Text(row.valueA.toString())),
+        DataCell(Text(row.valueB)),
+        DataCell(Text(row.valueC)),
+        DataCell(Text(row.valueD.toString())),
+        DataCell(Text(row.valueE.toString())),
+        DataCell(Text(row.valueF)),
+        DataCell(Text(row.valueG)),
+      ],
     );
+  }
+
+  @override
+  int get rowCount => _rows.length;
+
+  @override
+  bool get isRowCountApproximate => false;
+
+  @override
+  int get selectedRowCount => _selectedCount;
+}
+
+class WaveClipper1 extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    final path = Path();
+    path.lineTo(0.0, size.height - 50);
+
+    var firstEndPoint = Offset(size.width * 0.6, size.height - 29 - 50);
+    var firstControlPoint = Offset(size.width * .25, size.height - 60 - 50);
+    path.quadraticBezierTo(firstControlPoint.dx, firstControlPoint.dy,
+        firstEndPoint.dx, firstEndPoint.dy);
+
+    var secondEndPoint = Offset(size.width, size.height - 60);
+    var secondControlPoint = Offset(size.width * 0.84, size.height - 50);
+    path.quadraticBezierTo(secondControlPoint.dx, secondControlPoint.dy,
+        secondEndPoint.dx, secondEndPoint.dy);
+    path.lineTo(size.width, size.height);
+    path.lineTo(size.width, 0);
+    path.close();
+    return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) {
+    return false;
+  }
+}
+
+class WaveClipper3 extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    final path = Path();
+    path.lineTo(0.0, size.height - 50);
+
+    var firstEndPoint = Offset(size.width * 0.6, size.height - 15 - 50);
+    var firstControlPoint = Offset(size.width * .25, size.height - 60 - 50);
+    path.quadraticBezierTo(firstControlPoint.dx, firstControlPoint.dy,
+        firstEndPoint.dx, firstEndPoint.dy);
+
+    var secondEndPoint = Offset(size.width, size.height - 40);
+    var secondControlPoint = Offset(size.width * 0.84, size.height - 30);
+    path.quadraticBezierTo(secondControlPoint.dx, secondControlPoint.dy,
+        secondEndPoint.dx, secondEndPoint.dy);
+    path.lineTo(size.width, size.height);
+    path.lineTo(size.width, 0);
+    path.close();
+    return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) {
+    return false;
+  }
+}
+
+class WaveClipper2 extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    final path = Path();
+    path.lineTo(0.0, size.height - 50);
+
+    var firstEndPoint = Offset(size.width * .7, size.height - 40);
+    var firstControlPoint = Offset(size.width * .25, size.height);
+    path.quadraticBezierTo(firstControlPoint.dx, firstControlPoint.dy,
+        firstEndPoint.dx, firstEndPoint.dy);
+
+    var secondEndPoint = Offset(size.width, size.height - 45);
+    var secondControlPoint = Offset(size.width * 0.84, size.height - 50);
+    path.quadraticBezierTo(secondControlPoint.dx, secondControlPoint.dy,
+        secondEndPoint.dx, secondEndPoint.dy);
+    path.lineTo(size.width, size.height);
+    path.lineTo(size.width, 0);
+    path.close();
+    return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) {
+    return false;
   }
 }
