@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:project_allocation_app/admin_panel.dart';
 import 'package:project_allocation_app/teacher_panel.dart';
 
+import 'student_panel.dart';
+
 class HomeScreen extends StatefulWidget {
   @override
   _HomeScreenState createState() => _HomeScreenState();
@@ -58,7 +60,7 @@ class _HomeScreenState extends State<HomeScreen> {
               height: 70.0,
               onPressed: () {
                 Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => null));
+                    context, MaterialPageRoute(builder: (context) => Stdlist()));
               },
               child: Text(
                 "Student Panel Design",
