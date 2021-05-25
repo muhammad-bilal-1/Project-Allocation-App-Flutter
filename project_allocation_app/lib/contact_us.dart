@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:project_allocation_app/contact_us.dart';
 
 class contact_us extends StatelessWidget {
   @override
