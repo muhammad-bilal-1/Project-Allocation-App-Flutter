@@ -5,6 +5,11 @@ import 'Teacher/Add Teacher.dart';
 import 'Teacher/Add_student.dart';
 import 'Teacher/View_teacher.dart';
 import 'package:random_string/random_string.dart';
+import 'package:flutter/material.dart';
+import 'package:project_allocation_app/admin_panel.dart';
+import 'package:project_allocation_app/teacher_panel.dart';
+import 'package:project_allocation_app/contact_us.dart';
+import 'student_panel.dart';
 
 class admin_page extends StatelessWidget {
   static final String path = "lib/admin_panel/dash3.dart";
