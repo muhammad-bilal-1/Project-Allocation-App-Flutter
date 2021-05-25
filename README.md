@@ -18,3 +18,7 @@ https://user-images.githubusercontent.com/77444239/119354667-c67f3b80-bcbd-11eb-
 # Student Panel View Completed
 https://user-images.githubusercontent.com/79936546/119354085-11e51a00-bcbd-11eb-8f96-2fb66bf57501.mp4
 
+
+#SignIn and Signup pages Completed
+![Screenshot (65)](https://user-images.githubusercontent.com/79825272/119480427-1962fc80-bd6b-11eb-9efd-e688eaebd3c7.png)
+![Screenshot (66)](https://user-images.githubusercontent.com/79825272/119480464-24b62800-bd6b-11eb-99f4-052af2b905db.png)
