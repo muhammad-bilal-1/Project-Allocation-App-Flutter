@@ -89,7 +89,8 @@ class contact_us extends StatelessWidget {
               children: [
                 //TODO MUHAMMAD BILAL
                 CircleAvatar(
-                  backgroundImage: AssetImage('image/fardeen.jpeg'),
+                  child: Image.asset("images/Bilal.png"),
+                  backgroundColor: Colors.transparent,
                   radius: 30.0,
                 ),
                 Center(
@@ -117,7 +118,7 @@ class contact_us extends StatelessWidget {
                         width: 10.0,
                       ),
                       Text(
-                        '+923401671460',
+                        '+923047966966',
                         style: TextStyle(
                           fontSize: 15.0,
                           fontWeight: FontWeight.bold,
@@ -140,7 +141,7 @@ class contact_us extends StatelessWidget {
                       SizedBox(
                         width: 10.0,
                       ),
-                      Text('Fardeenmirza5@icloud.com',
+                      Text('jutt.muhammadbilal@gmail.com',
                           style: TextStyle(
                             fontSize: 15.0,
                             fontWeight: FontWeight.bold,
@@ -158,7 +159,8 @@ class contact_us extends StatelessWidget {
 
                 //TODO FARDEEN MIRZA
                 CircleAvatar(
-                  backgroundImage: AssetImage("images/fard.png"),
+                  child: Image.asset("images/fard.png"),
+                  backgroundColor: Colors.transparent,
                   radius: 30.0,
                 ),
                 Center(
@@ -227,7 +229,6 @@ class contact_us extends StatelessWidget {
 
                 //TODO MUFFASAL HUSSAIN
                 CircleAvatar(
-                  backgroundImage: AssetImage('image/fardeen.jpeg'),
                   radius: 30.0,
                 ),
                 Center(
@@ -296,7 +297,6 @@ class contact_us extends StatelessWidget {
 
                 //TODO AQSA TARIQ
                 CircleAvatar(
-                  backgroundImage: AssetImage('image/fardeen.jpeg'),
                   radius: 30.0,
                 ),
                 Center(
@@ -365,7 +365,6 @@ class contact_us extends StatelessWidget {
 
                 //TODO AHMAD JUNAID TARIQ
                 CircleAvatar(
-                  backgroundImage: AssetImage('image/fardeen.jpeg'),
                   radius: 30.0,
                 ),
                 Center(
@@ -434,7 +433,6 @@ class contact_us extends StatelessWidget {
 
                 //TODO AHTISHAM AKBAR
                 CircleAvatar(
-                  backgroundImage: AssetImage('image/fardeen.jpeg'),
                   radius: 30.0,
                 ),
                 Center(
@@ -503,7 +501,6 @@ class contact_us extends StatelessWidget {
 
                 //TODO HAMAZ ALI
                 CircleAvatar(
-                  backgroundImage: AssetImage('image/fardeen.jpeg'),
                   radius: 30.0,
                 ),
                 Center(
@@ -572,7 +569,6 @@ class contact_us extends StatelessWidget {
 
                 //TODO ADEELA SHEHZADI
                 CircleAvatar(
-                  backgroundImage: AssetImage('image/fardeen.jpeg'),
                   radius: 30.0,
                 ),
 
@@ -642,7 +638,6 @@ class contact_us extends StatelessWidget {
 
                 //TODO HAMZA RIAZ
                 CircleAvatar(
-                  backgroundImage: AssetImage('image/fardeen.jpeg'),
                   radius: 30.0,
                 ),
 
