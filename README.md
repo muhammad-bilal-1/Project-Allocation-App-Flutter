@@ -23,3 +23,6 @@ https://user-images.githubusercontent.com/79936546/119354085-11e51a00-bcbd-11eb-
 
 ![Screenshot (65)](https://user-images.githubusercontent.com/79825272/119481313-fbe26280-bd6b-11eb-8fd0-c87463c64261.png)
 ![Screenshot (67)](https://user-images.githubusercontent.com/79825272/119481317-fd138f80-bd6b-11eb-981c-2869109080ac.png)
+
+# Teacher Panel Main View Completed
+![Add_Project](https://user-images.githubusercontent.com/79273739/119242399-cb85a300-bb76-11eb-89eb-5ebe30b78799.PNG)
