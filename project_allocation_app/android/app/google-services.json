@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "182266630111",
+    "project_id": "project-allocation-app-6cd74",
+    "storage_bucket": "project-allocation-app-6cd74.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:182266630111:android:064b72e00b87191ef37e6a",
+        "android_client_info": {
+          "package_name": "com.example.project_allocation_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "182266630111-ji2n8jlvsnor429llmgbt7i22oqifmit.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB4NauSDcFpkibgnQD4-Eq-6Z0hlrWEESM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "182266630111-ji2n8jlvsnor429llmgbt7i22oqifmit.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
