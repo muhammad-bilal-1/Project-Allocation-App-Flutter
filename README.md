@@ -26,3 +26,7 @@ https://user-images.githubusercontent.com/79936546/119354085-11e51a00-bcbd-11eb-
 
 # Teacher Panel Main View Completed
 ![Add_Project](https://user-images.githubusercontent.com/79273739/119242399-cb85a300-bb76-11eb-89eb-5ebe30b78799.PNG)
+
+# Firebase Connection Done
+![firebase](https://user-images.githubusercontent.com/77444239/121502890-018da880-c9fa-11eb-8db2-e514f07092bb.PNG)
+
