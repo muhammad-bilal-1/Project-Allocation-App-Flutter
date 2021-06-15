@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:project_allocation_app/home.dart';
+//import 'package:project_allocation_app/home.dart';
+import 'package:project_allocation_app/Account_Home.dart';
 
 class splashscreen extends StatefulWidget {
   @override
@@ -13,7 +14,7 @@ class _splashscreenState extends State<splashscreen> {
     super.initState();
     Timer(Duration(seconds: 3), () {
       Navigator.of(context).pushReplacement(MaterialPageRoute(
-        builder: (context) => HomeScreen(),
+        builder: (context) => Account_home(), //HomeScreen(),
       ));
     });
   }
