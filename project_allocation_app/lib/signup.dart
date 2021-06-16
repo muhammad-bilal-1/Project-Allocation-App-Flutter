@@ -1,10 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
-//import 'package:project_allocation_app/Email_SignUp.dart';
-import 'package:get/get.dart';
+//import 'package:project_allocation_app/login.dart';
+//import 'package:get/get.dart';
 
-class SignUp extends StatelessWidget {
+class SignUp extends StatefulWidget {
+  // const SignUp({ Key? key }) : super(key: key);
+
+  @override
+  _SignUpState createState() => _SignUpState();
+}
+
+class _SignUpState extends State<SignUp> {
+  String _email, _password;
+  final auth = FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -33,6 +43,11 @@ class SignUp extends StatelessWidget {
           height: 16,
         ),
         TextField(
+          onChanged: (value) {
+            setState(() {
+              _email = value.trim();
+            });
+          },
           decoration: InputDecoration(
             hintText: 'Enter Email / Username',
             hintStyle: TextStyle(
@@ -56,6 +71,11 @@ class SignUp extends StatelessWidget {
           height: 16,
         ),
         TextField(
+          onChanged: (value) {
+            setState(() {
+              _password = value.trim();
+            });
+          },
           decoration: InputDecoration(
             hintText: 'Password',
             hintStyle: TextStyle(
@@ -97,15 +117,13 @@ class SignUp extends StatelessWidget {
           child: Center(
               child: SignInButtonBuilder(
             icon: Icons.email,
-            text: "SIGN UP WITH EMAIL",
+            text: "SIGN UP",
             textColor: Colors.white,
             fontSize: 16.0,
             backgroundColor: Colors.black,
             onPressed: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => null)); //EmailSignUp()),
+              auth.createUserWithEmailAndPassword(
+                  email: _email, password: _password);
             },
           )),
         ),
@@ -150,3 +168,8 @@ class SignUp extends StatelessWidget {
     );
   }
 }
+
+
+// class SignUps extends StatelessWidget {
+//   @override
+//  }

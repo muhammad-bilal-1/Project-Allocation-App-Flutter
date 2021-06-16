@@ -1,6 +1,23 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_signin_button/flutter_signin_button.dart';
+import 'package:project_allocation_app/home.dart';
 
-class Login extends StatelessWidget {
+class Login extends StatefulWidget {
+  //const Login({ Key? key }) : super(key: key);
+
+  @override
+  _LoginState createState() => _LoginState();
+}
+
+class _LoginState extends State<Login> {
+  String _email, _password;
+  final auth = FirebaseAuth.instance;
+  // void auths(final auth, String _email)
+  // {
+
+  // }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -37,6 +54,12 @@ class Login extends StatelessWidget {
           height: 16,
         ),
         TextField(
+          keyboardType: TextInputType.emailAddress,
+          onChanged: (value) {
+            setState(() {
+              _email = value.trim();
+            });
+          },
           decoration: InputDecoration(
             hintText: 'Email / Username',
             hintStyle: TextStyle(
@@ -60,6 +83,12 @@ class Login extends StatelessWidget {
           height: 16,
         ),
         TextField(
+          obscureText: true,
+          onChanged: (value) {
+            setState(() {
+              _password = value.trim();
+            });
+          },
           decoration: InputDecoration(
             hintText: 'Password',
             hintStyle: TextStyle(
@@ -99,15 +128,19 @@ class Login extends StatelessWidget {
             ],
           ),
           child: Center(
-            child: Text(
-              "LOGIN",
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                color: Colors.redAccent,
-              ),
-            ),
-          ),
+              child: SignInButtonBuilder(
+            icon: Icons.email,
+            text: "SIGN IN",
+            textColor: Colors.white,
+            fontSize: 16.0,
+            backgroundColor: Colors.black,
+            onPressed: () {
+              auth.signInWithEmailAndPassword(
+                  email: _email, password: _password);
+              Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(builder: (context) => HomeScreen()));
+            },
+          )),
         ),
         SizedBox(
           height: 16,
@@ -126,3 +159,7 @@ class Login extends StatelessWidget {
     );
   }
 }
+
+// class Logins extends StatelessWidget {
+//   @override
+// }

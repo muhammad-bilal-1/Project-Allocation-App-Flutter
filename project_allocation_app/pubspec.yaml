@@ -42,6 +42,7 @@ dependencies:
   firebase_auth: ^1.4.1
   flutter_signin_button: ^2.0.0
   intl: ^0.17.0
+  firebase_core_web: ^1.1.0 
   
 
 dev_dependencies:
