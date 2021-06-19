@@ -15,6 +15,7 @@ class SignUp extends StatefulWidget {
 class _SignUpState extends State<SignUp> {
   String _email, _password;
   final auth = FirebaseAuth.instance;
+  //final _formkey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -121,9 +122,20 @@ class _SignUpState extends State<SignUp> {
             textColor: Colors.white,
             fontSize: 16.0,
             backgroundColor: Colors.black,
-            onPressed: () {
-              auth.createUserWithEmailAndPassword(
-                  email: _email, password: _password);
+            onPressed: () async {
+              dynamic result = await (auth.createUserWithEmailAndPassword(
+                  email: _email, password: _password));
+              // final snackBar = SnackBar(content: Text('$result'));
+              // ScaffoldMessenger.of(context).showSnackBar(snackBar);
+              if (result == null) {
+                final snackBar =
+                    SnackBar(content: Text('Please Enter a valid Email'));
+                ScaffoldMessenger.of(context).showSnackBar(snackBar);
+              } else {
+                final snackBar =
+                    SnackBar(content: Text('You are Successfully Registered'));
+                ScaffoldMessenger.of(context).showSnackBar(snackBar);
+              }
             },
           )),
         ),

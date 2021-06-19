@@ -1,7 +1,9 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 //import 'package:project_allocation_app/home.dart';
-import 'package:project_allocation_app/Account_Home.dart';
+//import 'package:project_allocation_app/Account_Home.dart';
+import 'package:project_allocation_app/up_retrieve.dart';
+import 'package:project_allocation_app/retrieve_pdf.dart';
 
 class splashscreen extends StatefulWidget {
   @override
@@ -14,7 +16,7 @@ class _splashscreenState extends State<splashscreen> {
     super.initState();
     Timer(Duration(seconds: 3), () {
       Navigator.of(context).pushReplacement(MaterialPageRoute(
-        builder: (context) => Account_home(), //HomeScreen(),
+        builder: (context) => retandup(), //ret_pdf(), //HomeScreen(),
       ));
     });
   }

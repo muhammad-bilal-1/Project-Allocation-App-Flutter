@@ -13,6 +13,7 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   String _email, _password;
   final auth = FirebaseAuth.instance;
+  final _formkey = GlobalKey<FormState>();
   // void auths(final auth, String _email)
   // {
 
@@ -129,18 +130,32 @@ class _LoginState extends State<Login> {
           ),
           child: Center(
               child: SignInButtonBuilder(
-            icon: Icons.email,
-            text: "SIGN IN",
-            textColor: Colors.white,
-            fontSize: 16.0,
-            backgroundColor: Colors.black,
-            onPressed: () {
-              auth.signInWithEmailAndPassword(
-                  email: _email, password: _password);
-              Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(builder: (context) => HomeScreen()));
-            },
-          )),
+                  icon: Icons.email,
+                  text: "SIGN IN",
+                  textColor: Colors.white,
+                  fontSize: 16.0,
+                  backgroundColor: Colors.black,
+                  onPressed: () async {
+                    // if (_formkey.currentState.validate()) {
+                    dynamic result = await auth.signInWithEmailAndPassword(
+                        email: _email, password: _password);
+                    if (result != null) {
+                      setState(() {
+                        final snackBar =
+                            SnackBar(content: Text('Sign in Sucessfully'));
+                        ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                        Navigator.of(context).pushReplacement(MaterialPageRoute(
+                            builder: (context) => HomeScreen()));
+                      });
+                    } else {
+                      final snackBar = SnackBar(
+                          content:
+                              Text('Could not Sign in With those credentials'));
+                      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                    }
+                  }
+                  // },
+                  )),
         ),
         SizedBox(
           height: 16,
