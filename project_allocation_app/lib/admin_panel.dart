@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:project_allocation_app/Teacher/View_student.dart';
+import 'package:project_allocation_app/home.dart';
 import 'Teacher/Add Teacher.dart';
 import 'Teacher/Add_student.dart';
 import 'Teacher/View_teacher.dart';
@@ -33,7 +34,7 @@ class admin_page extends StatelessWidget {
                     type: MaterialType.transparency,
                     child: InkWell(
                       onTap: () => {
-                        null,
+                        HomeScreen(),
                       },
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
