@@ -34,12 +34,15 @@ class teacherPannel extends StatelessWidget {
                         _buildTile(
                           color: Colors.deepOrangeAccent,
                           icon: Icons.add_circle_outline_sharp,
-                          data: "Upload Project Title",
+                          data: "Add Project",
                         ),
                       ],
                     ),
                     onPressed: () {
-                      null;
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => add_project()));
                     },
                   ),
                 ),
@@ -67,53 +70,6 @@ class teacherPannel extends StatelessWidget {
               ],
             ),
           ),
-          const SizedBox(height: 20.0),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            child: Row(
-              children: <Widget>[
-                Expanded(
-                  child: FlatButton(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: <Widget>[
-                        _buildTile(
-                          color: Colors.teal,
-                          icon: Icons.delete,
-                          data: "Delete Project",
-                        ),
-                      ],
-                    ),
-                    onPressed: () {
-                      null;
-                    },
-                  ),
-                ),
-                const SizedBox(width: 16.0),
-                Expanded(
-                  child: FlatButton(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: <Widget>[
-                        _buildTile(
-                          color: Colors.amber,
-                          icon: Icons.add_link,
-                          data: "Add New Project",
-                        ),
-                      ],
-                    ),
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => add_project()));
-                    },
-                  ),
-                ),
-              ],
-            ),
-          ),
-          const SizedBox(height: 20.0),
         ],
       ),
     );

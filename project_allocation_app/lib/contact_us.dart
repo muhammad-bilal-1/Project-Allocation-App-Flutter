@@ -365,6 +365,8 @@ class contact_us extends StatelessWidget {
 
                 //TODO AHMAD JUNAID TARIQ
                 CircleAvatar(
+                  child: Image.asset("images/ahmad.jpg"),
+                  backgroundColor: Colors.transparent,
                   radius: 30.0,
                 ),
                 Center(
@@ -392,7 +394,7 @@ class contact_us extends StatelessWidget {
                         width: 10.0,
                       ),
                       Text(
-                        '+923401671460',
+                        '+923000373501',
                         style: TextStyle(
                           fontSize: 15.0,
                           fontWeight: FontWeight.bold,
@@ -415,7 +417,7 @@ class contact_us extends StatelessWidget {
                       SizedBox(
                         width: 10.0,
                       ),
-                      Text('Fardeenmirza5@icloud.com',
+                      Text('ahmadjunaid6789@gmail.com',
                           style: TextStyle(
                             fontSize: 15.0,
                             fontWeight: FontWeight.bold,
