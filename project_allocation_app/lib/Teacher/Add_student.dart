@@ -45,8 +45,8 @@ class _retandupState extends State<AddStd> {
       await storage.ref(fileName).putFile(
           pdfFile,
           SettableMetadata(customMetadata: {
-            'uploaded_by': 'Mufi',
-            'description': 'Some description...'
+            'uploaded_std': 'Students List',
+            'description_std': 'Some description...'
           }));
 
       // Refresh the UI
@@ -68,8 +68,8 @@ class _retandupState extends State<AddStd> {
       files.add({
         "url": fileUrl,
         "path": file.fullPath,
-        "uploaded_by": fileMeta.customMetadata['uploaded_by'],
-        "description": fileMeta.customMetadata['description']
+        "uploaded_std": fileMeta.customMetadata['uploaded_std'],
+        "description_std": fileMeta.customMetadata['description_std']
       });
     });
 
@@ -87,7 +87,7 @@ class _retandupState extends State<AddStd> {
     return Scaffold(
       appBar: new AppBar(
         backgroundColor: Colors.blue,
-        title: new Text("Add Students"),
+        title: new Text("Add or Remove Students"),
       ),
       body: Padding(
         padding: const EdgeInsets.all(20),
@@ -100,16 +100,47 @@ class _retandupState extends State<AddStd> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 ElevatedButton.icon(
-                    style: ElevatedButton.styleFrom(
-                        primary: Colors.blue,
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 50, vertical: 10),
-                        textStyle: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold)),
                     onPressed: () => _upload(),
                     icon: Icon(Icons.camera),
-                    label: Text('Upload Student File')),
+                    label: Text('upload')),
               ],
+            ),
+            Expanded(
+              child: FutureBuilder(
+                future: _loadPDF(),
+                builder: (context,
+                    AsyncSnapshot<List<Map<String, dynamic>>> snapshot) {
+                  if (snapshot.connectionState == ConnectionState.done) {
+                    return ListView.builder(
+                      itemCount: snapshot.data.length,
+                      itemBuilder: (context, index) {
+                        final PDF = snapshot.data[index];
+                        return Card(
+                          margin: EdgeInsets.symmetric(vertical: 10),
+                          child: ListTile(
+                            dense: false,
+                            leading: Image.asset('assets/img/12.png',
+                                width: 50.0, height: 50.0),
+                            title: Text(PDF['uploaded_std']),
+                            subtitle: Text(PDF['description_std']),
+                            trailing: IconButton(
+                              onPressed: () => _delete(PDF['path']),
+                              icon: Icon(
+                                Icons.delete,
+                                color: Colors.red,
+                              ),
+                            ),
+                          ),
+                        );
+                      },
+                    );
+                  }
+
+                  return Center(
+                    child: CircularProgressIndicator(),
+                  );
+                },
+              ),
             ),
           ],
         ),

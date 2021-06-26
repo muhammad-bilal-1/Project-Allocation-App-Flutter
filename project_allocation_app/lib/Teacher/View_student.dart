@@ -45,8 +45,8 @@ class _retandupState extends State<ViewStd> {
       await storage.ref(fileName).putFile(
           pdfFile,
           SettableMetadata(customMetadata: {
-            'uploaded_by': 'List',
-            'description': 'Some description...'
+            'uploaded_std': 'Students List',
+            'description_std': 'Some description...'
           }));
 
       // Refresh the UI
@@ -68,8 +68,8 @@ class _retandupState extends State<ViewStd> {
       files.add({
         "url": fileUrl,
         "path": file.fullPath,
-        "uploaded_by": fileMeta.customMetadata['uploaded_by'],
-        "description": fileMeta.customMetadata['description']
+        "uploaded_std": fileMeta.customMetadata['uploaded_std'],
+        "description_std": fileMeta.customMetadata['description_std']
       });
     });
 
@@ -109,8 +109,8 @@ class _retandupState extends State<ViewStd> {
                             dense: false,
                             leading: Image.asset('assets/img/12.png',
                                 width: 50.0, height: 50.0),
-                            title: Text(PDF['uploaded_by']),
-                            subtitle: Text(PDF['description']),
+                            title: Text(PDF['uploaded_std']),
+                            subtitle: Text(PDF['description_std']),
                             trailing: IconButton(
                               onPressed: () {
                                 setState(() {
