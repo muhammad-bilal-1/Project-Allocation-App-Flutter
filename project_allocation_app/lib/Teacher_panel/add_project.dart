@@ -86,7 +86,7 @@ class _add_projectState extends State<add_project> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: new AppBar(
-        backgroundColor: Colors.redAccent,
+        backgroundColor: Colors.deepOrangeAccent,
         title: new Text("Add or Remove Projects"),
       ),
       body: Padding(
@@ -94,15 +94,21 @@ class _add_projectState extends State<add_project> {
         child: Column(
           children: [
             SizedBox(
-              height: 250.0,
+              height: 20.0,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 ElevatedButton.icon(
+                    style: ElevatedButton.styleFrom(
+                        primary: Colors.deepOrangeAccent,
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 50, vertical: 10),
+                        textStyle: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.bold)),
                     onPressed: () => _upload(),
                     icon: Icon(Icons.add_link),
-                    label: Text('upload')),
+                    label: Text('Upload Projects')),
               ],
             ),
             Expanded(
@@ -121,8 +127,9 @@ class _add_projectState extends State<add_project> {
                             dense: false,
                             leading: Image.asset('assets/img/12.png',
                                 width: 50.0, height: 50.0),
-                            title: Text(PDF['uploaded_project']),
-                            subtitle: Text(PDF['description_project']),
+                            title: Text(PDF['uploaded_project'] ?? 'File'),
+                            subtitle: Text(
+                                PDF['description_project'] ?? 'Description...'),
                             trailing: IconButton(
                               onPressed: () => _delete(PDF['path']),
                               icon: Icon(
@@ -162,6 +169,6 @@ class _pdfopenState extends State<pdfopen> {
     return Scaffold(
         body: Container(
             child:
-            SfPdfViewer.network(uri, enableDocumentLinkAnnotation: false)));
+                SfPdfViewer.network(uri, enableDocumentLinkAnnotation: false)));
   }
 }

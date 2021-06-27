@@ -1,52 +1,85 @@
 import 'package:flutter/material.dart';
+import 'package:project_allocation_app/Teacher_panel/add_project.dart';
+import 'package:project_allocation_app/Teacher_panel/view_projects.dart';
 
 class Stdlist extends StatelessWidget {
+  static final String path = "lib/teacher_panel/dash3.dart";
+  //final String image1 = "img/1.jpg";
   final TextStyle whiteText = TextStyle(color: Colors.white);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Theme.of(context).buttonColor,
       body: _buildStats(context),
     );
   }
 
   Widget _buildStats(BuildContext context) {
-    return Scaffold(
-        body: ListView(
-          children: [
-            _buildHeader(),
-            PaginatedDataTable(
-              header: Text('Projects List'),
-              rowsPerPage: 4,
-              columns: [
-                DataColumn(
-                    label: Text('#',
-                        style: new TextStyle(fontWeight: FontWeight.bold))),
-                DataColumn(
-                    label: Text('Title',
-                        style: new TextStyle(fontWeight: FontWeight.bold))),
-                DataColumn(
-                    label: Text('Project Description',
-                        style: new TextStyle(fontWeight: FontWeight.bold))),
-                DataColumn(
-                    label: Text('Remaining Seats',
-                        style: new TextStyle(fontWeight: FontWeight.bold))),
-                DataColumn(
-                    label: Text('Total Marks',
-                        style: new TextStyle(fontWeight: FontWeight.bold))),
-                DataColumn(
-                    label: Text('Grouping Details',
-                        style: new TextStyle(fontWeight: FontWeight.bold))),
-                DataColumn(
-                    label: Text('Selection Status',
-                        style: new TextStyle(fontWeight: FontWeight.bold))),
-                DataColumn(
-                    label: Text('Choose',
-                        style: new TextStyle(fontWeight: FontWeight.bold))),
+    return SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          _buildHeader(),
+          const SizedBox(height: 10.0),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            child: Row(
+              children: <Widget>[
+                Expanded(
+                  child: FlatButton(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: <Widget>[
+                        _buildTile(
+                          color: Colors.deepPurple,
+                          icon: Icons.remove_red_eye_sharp,
+                          data: "View Project",
+                        ),
+                      ],
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => projectlist()));
+                    },
+                  ),
+                ),
               ],
-              source: _DataSource(context),
             ),
-          ],
-        ));
+          ),
+        ],
+      ),
+    );
+  }
+
+  Container _buildTile({Color color, IconData icon, String data}) {
+    return Container(
+      padding: const EdgeInsets.all(8.0),
+      height: 150.0,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(4.0),
+        color: color,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Icon(
+            icon,
+            size: 100.0,
+            color: Colors.white,
+          ),
+          Text(
+            data,
+            textAlign: TextAlign.center,
+            style:
+                whiteText.copyWith(fontWeight: FontWeight.bold, fontSize: 20.0),
+          ),
+        ],
+      ),
+    );
   }
 
   Stack _buildHeader() {
@@ -81,10 +114,10 @@ class Stdlist extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 SizedBox(
-                  height: 40,
+                  height: 60,
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 56.0),
+                  padding: const EdgeInsets.only(left: 46.0),
                   child: Text(
                     "Student Dashboard",
                     style: whiteText.copyWith(
@@ -93,7 +126,7 @@ class Stdlist extends StatelessWidget {
                 ),
                 const SizedBox(height: 10.0),
                 Padding(
-                  padding: const EdgeInsets.only(left: 56.0),
+                  padding: const EdgeInsets.only(left: 46.0),
                   child: Text(
                     "CIIT-BSCS-B15-VHR",
                     style: whiteText.copyWith(
@@ -115,116 +148,6 @@ class Stdlist extends StatelessWidget {
       ],
     );
   }
-}
-
-class _Row {
-  _Row(
-      this.valueA,
-      this.valueB,
-      this.valueC,
-      this.valueD,
-      this.valueE,
-      this.valueF,
-      this.valueG,
-      this.valueH,
-      );
-
-  final int valueA;
-  final String valueB;
-  final String valueC;
-  final int valueD;
-  final int valueE;
-  final String valueF;
-  final String valueG;
-  final String valueH;
-
-  bool selected = false;
-}
-
-class _DataSource extends DataTableSource {
-  _DataSource(this.context) {
-    _rows = <_Row>[
-      _Row(
-          1,
-          'Home Automation using Android for Aged and Handicap Persons\nSupervisor Email: noureen@vu.edu.pk',
-          'Project File\nDue Date of Selection: Mon 10 May, 2021',
-          9,
-          100,
-          'Group Size: 2\nDue Date of Grouping: Mon 17 May, 2021',
-          'Not Selected',
-          'Choose Project'),
-      _Row(
-          2,
-          'Control and Monitoring of a Remote Network in Client/Server environment\nSupervisor Email: asimmehmood@vu.edu.pk',
-          'Project File\nDue Date of Selection: Mon 10 May, 2021',
-          0,
-          100,
-          'Group Size: 2\nDue Date of Grouping: Mon 17 May, 2021',
-          'Not Selected',
-          'Choose Project'),
-      _Row(
-          3,
-          'School Management System\nSupervisor Email: ahmed@vu.edu.pk',
-          'Project File\nDue Date of Selection: Mon 10 May, 2021',
-          2,
-          100,
-          'Group Size: 4\nDue Date of Grouping: Mon 17 May, 2021',
-          'Not Selected',
-          'Choose Project'),
-      _Row(
-          4,
-          'Mask Detection Application\nSupervisor Email: alia@vu.edu.pk',
-          'Project File\nDue Date of Selection: Mon 10 May, 2021',
-          1,
-          100,
-          'Group Size: 2\nDue Date of Grouping: Mon 17 May, 2021',
-          'Not Selected',
-          'Choose Project'),
-    ];
-  }
-
-  final BuildContext context;
-  List<_Row> _rows;
-
-  int _selectedCount = 0;
-
-  @override
-  DataRow getRow(int index) {
-    assert(index >= 0);
-    if (index >= _rows.length) return null;
-    final row = _rows[index];
-    return DataRow.byIndex(
-      index: index,
-      selected: row.selected,
-      // onSelectChanged: (value) {
-      // if (row.selected != value) {
-      //   _selectedCount += value ? 1 : -1;
-      //   assert(_selectedCount >= 0);
-      //   row.selected = value;
-      //   notifyListeners();
-      // }
-      // },
-      cells: [
-        DataCell(Text(row.valueA.toString())),
-        DataCell(Text(row.valueB)),
-        DataCell(Text(row.valueC)),
-        DataCell(Text(row.valueD.toString())),
-        DataCell(Text(row.valueE.toString())),
-        DataCell(Text(row.valueF)),
-        DataCell(Text(row.valueG)),
-        DataCell(Text(row.valueH)),
-      ],
-    );
-  }
-
-  @override
-  int get rowCount => _rows.length;
-
-  @override
-  bool get isRowCountApproximate => false;
-
-  @override
-  int get selectedRowCount => _selectedCount;
 }
 
 class WaveClipper1 extends CustomClipper<Path> {

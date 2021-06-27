@@ -45,7 +45,7 @@ class _retandupState extends State<AddTr> {
       await storage.ref(fileName).putFile(
           pdfFile,
           SettableMetadata(customMetadata: {
-            'uploaded_tr': 'Techers List',
+            'uploaded_tr': 'File',
             'description_tr': 'Some description...'
           }));
 
@@ -87,22 +87,25 @@ class _retandupState extends State<AddTr> {
     return Scaffold(
       appBar: new AppBar(
         backgroundColor: Colors.redAccent,
-        title: new Text("Add or Remove Teachers"),
+        title: new Text("Add Teachers"),
       ),
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            SizedBox(
-              height: 250.0,
-            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 ElevatedButton.icon(
+                    style: ElevatedButton.styleFrom(
+                        primary: Colors.redAccent,
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 50, vertical: 10),
+                        textStyle: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.bold)),
                     onPressed: () => _upload(),
                     icon: Icon(Icons.camera),
-                    label: Text('upload')),
+                    label: Text('Upload Teacher File')),
               ],
             ),
             Expanded(
@@ -121,8 +124,9 @@ class _retandupState extends State<AddTr> {
                             dense: false,
                             leading: Image.asset('assets/img/12.png',
                                 width: 50.0, height: 50.0),
-                            title: Text(PDF['uploaded_tr']),
-                            subtitle: Text(PDF['description_tr']),
+                            title: Text(PDF['uploaded_tr'] ?? 'File'),
+                            subtitle:
+                                Text(PDF['description_tr'] ?? 'Description...'),
                             trailing: IconButton(
                               onPressed: () => _delete(PDF['path']),
                               icon: Icon(

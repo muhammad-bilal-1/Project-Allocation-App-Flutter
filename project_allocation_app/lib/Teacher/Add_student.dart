@@ -45,8 +45,8 @@ class _retandupState extends State<AddStd> {
       await storage.ref(fileName).putFile(
           pdfFile,
           SettableMetadata(customMetadata: {
-            'uploaded_std': 'Students List',
-            'description_std': 'Some description...'
+            'uploaded_student': 'File',
+            'description_student': 'Some description...'
           }));
 
       // Refresh the UI
@@ -68,8 +68,8 @@ class _retandupState extends State<AddStd> {
       files.add({
         "url": fileUrl,
         "path": file.fullPath,
-        "uploaded_std": fileMeta.customMetadata['uploaded_std'],
-        "description_std": fileMeta.customMetadata['description_std']
+        "uploaded_student": fileMeta.customMetadata['uploaded_student'],
+        "description_student": fileMeta.customMetadata['description_student']
       });
     });
 
@@ -87,22 +87,25 @@ class _retandupState extends State<AddStd> {
     return Scaffold(
       appBar: new AppBar(
         backgroundColor: Colors.blue,
-        title: new Text("Add or Remove Students"),
+        title: new Text("Add Students"),
       ),
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            SizedBox(
-              height: 250.0,
-            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 ElevatedButton.icon(
+                    style: ElevatedButton.styleFrom(
+                        primary: Colors.blue,
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 50, vertical: 10),
+                        textStyle: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.bold)),
                     onPressed: () => _upload(),
                     icon: Icon(Icons.camera),
-                    label: Text('upload')),
+                    label: Text('Upload Student File')),
               ],
             ),
             Expanded(
@@ -121,8 +124,9 @@ class _retandupState extends State<AddStd> {
                             dense: false,
                             leading: Image.asset('assets/img/12.png',
                                 width: 50.0, height: 50.0),
-                            title: Text(PDF['uploaded_std']),
-                            subtitle: Text(PDF['description_std']),
+                            title: Text(PDF['uploaded_student'] ?? 'File'),
+                            subtitle: Text(
+                                PDF['description_student'] ?? 'Description...'),
                             trailing: IconButton(
                               onPressed: () => _delete(PDF['path']),
                               icon: Icon(

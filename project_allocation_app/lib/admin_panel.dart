@@ -8,19 +8,20 @@ import 'Teacher/View_teacher.dart';
 import 'package:random_string/random_string.dart';
 import 'package:flutter/material.dart';
 import 'package:project_allocation_app/admin_panel.dart';
-import 'package:project_allocation_app/teacher_panel.dart';
+import 'package:project_allocation_app/Teacher_panel/teacher_panel.dart';
 import 'package:project_allocation_app/contact_us.dart';
 import 'student_panel.dart';
 
 class admin_page extends StatelessWidget {
   static final String path = "lib/admin_panel/dash3.dart";
-  final String avatar = "img/1.jpg";
+  //final String avatar = "images/.png";
   final TextStyle whiteText = TextStyle(color: Colors.white);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       body: _buildBody(context),
+      /*
       bottomNavigationBar: BottomAppBar(
         color: Colors.red,
         child: Row(
@@ -154,6 +155,8 @@ class admin_page extends StatelessWidget {
               ),
             ]),
       ),
+
+       */
     );
   }
 
@@ -191,100 +194,7 @@ class admin_page extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           _buildHeader(),
-          // const SizedBox(height: 20.0),
-          Padding(
-            padding: const EdgeInsets.only(left: 16.0),
-            child: Text(
-              "Total Number of Students and Teacher",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18.0),
-            ),
-          ),
-          Card(
-            elevation: 4.0,
-            color: Colors.white,
-            margin: const EdgeInsets.all(16.0),
-            child: Row(
-              children: <Widget>[
-                Expanded(
-                  child: ListTile(
-                    leading: Container(
-                      alignment: Alignment.bottomCenter,
-                      width: 45.0,
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: <Widget>[
-                          Container(
-                            height: 20,
-                            width: 8.0,
-                            color: Colors.grey.shade300,
-                          ),
-                          const SizedBox(width: 4.0),
-                          Container(
-                            height: 25,
-                            width: 8.0,
-                            color: Colors.grey.shade300,
-                          ),
-                          const SizedBox(width: 4.0),
-                          Container(
-                            height: 40,
-                            width: 8.0,
-                            color: Colors.blue,
-                          ),
-                          const SizedBox(width: 4.0),
-                          Container(
-                            height: 30,
-                            width: 8.0,
-                            color: Colors.grey.shade300,
-                          ),
-                        ],
-                      ),
-                    ),
-                    title: Text("Teachers"),
-                    subtitle: Text("18"),
-                  ),
-                ),
-                VerticalDivider(),
-                Expanded(
-                  child: ListTile(
-                    leading: Container(
-                      alignment: Alignment.bottomCenter,
-                      width: 45.0,
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: <Widget>[
-                          Container(
-                            height: 20,
-                            width: 8.0,
-                            color: Colors.grey.shade300,
-                          ),
-                          const SizedBox(width: 4.0),
-                          Container(
-                            height: 25,
-                            width: 8.0,
-                            color: Colors.grey.shade300,
-                          ),
-                          const SizedBox(width: 4.0),
-                          Container(
-                            height: 40,
-                            width: 8.0,
-                            color: Colors.red,
-                          ),
-                          const SizedBox(width: 4.0),
-                          Container(
-                            height: 30,
-                            width: 8.0,
-                            color: Colors.grey.shade300,
-                          ),
-                        ],
-                      ),
-                    ),
-                    title: Text("Students"),
-                    subtitle: Text("127"),
-                  ),
-                ),
-              ],
-            ),
-          ),
+          SizedBox(height: 50.0),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 0.0),
             child: Row(
@@ -431,15 +341,16 @@ class admin_page extends StatelessWidget {
                         fontWeight: FontWeight.bold, fontSize: 20.0),
                   ),
                   trailing: CircleAvatar(
-                    radius: 25.0,
-                    backgroundImage: AssetImage(avatar),
+                    child: Icon(Icons.perm_identity_sharp),
+                    //backgroundColor: Colors.transparent,
+                    radius: 30.0,
                   ),
                 ),
                 const SizedBox(height: 10.0),
                 Padding(
                   padding: const EdgeInsets.only(left: 16.0),
                   child: Text(
-                    "Admin Name",
+                    "Admin",
                     style: whiteText.copyWith(
                       fontSize: 18.0,
                       fontWeight: FontWeight.w500,
@@ -450,7 +361,7 @@ class admin_page extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(left: 16.0),
                   child: Text(
-                    "Head of Department CUI,Vehari",
+                    "Department of Computer Science, CUI Vehari",
                     style: whiteText,
                   ),
                 ),

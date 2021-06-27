@@ -72,8 +72,9 @@ class _projectlistState extends State<projectlist> {
                             dense: false,
                             leading: Image.asset('assets/img/12.png',
                                 width: 50.0, height: 50.0),
-                            title: Text(PDF['uploaded_project']),
-                            subtitle: Text(PDF['description_project']),
+                            title: Text(PDF['uploaded_project'] ?? 'File'),
+                            subtitle: Text(
+                                PDF['description_project'] ?? 'Description'),
                             trailing: IconButton(
                               onPressed: () {
                                 setState(() {
@@ -85,7 +86,7 @@ class _projectlistState extends State<projectlist> {
                               },
                               icon: Icon(
                                 Icons.table_view_sharp,
-                                color: Colors.deepPurple,
+                                color: Colors.deepPurpleAccent,
                               ),
                             ),
                           ),
@@ -120,6 +121,6 @@ class _pdfopenState extends State<pdfopen> {
     return Scaffold(
         body: Container(
             child:
-            SfPdfViewer.network(uri, enableDocumentLinkAnnotation: false)));
+                SfPdfViewer.network(uri, enableDocumentLinkAnnotation: false)));
   }
 }

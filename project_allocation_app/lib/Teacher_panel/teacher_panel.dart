@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:project_allocation_app/add_project.dart';
-import 'package:project_allocation_app/view_projects.dart';
+import 'package:project_allocation_app/Teacher_panel/add_project.dart';
+import 'package:project_allocation_app/Teacher_panel/view_projects.dart';
 
 class teacherPannel extends StatelessWidget {
   static final String path = "lib/teacher_panel/dash3.dart";
-  final String image1 = "img/1.jpg";
+  //final String image1 = "img/1.jpg";
   final TextStyle whiteText = TextStyle(color: Colors.white);
 
   @override
@@ -46,7 +46,7 @@ class teacherPannel extends StatelessWidget {
                     },
                   ),
                 ),
-                const SizedBox(width: 16.0),
+                const SizedBox(width: 5.0),
                 Expanded(
                   child: FlatButton(
                     child: Column(
@@ -55,7 +55,7 @@ class teacherPannel extends StatelessWidget {
                         _buildTile(
                           color: Colors.deepPurple,
                           icon: Icons.remove_red_eye_sharp,
-                          data: "View Projects",
+                          data: "View Project",
                         ),
                       ],
                     ),
@@ -114,7 +114,7 @@ class teacherPannel extends StatelessWidget {
             height: 250,
             decoration: BoxDecoration(
                 gradient: LinearGradient(
-                    colors: [Color(0x22ff3a5a), Color(0x22fe494d)])),
+                    colors: [Color(0xD0AEEE7C), Color(0x7e94fe49)])),
           ),
         ),
         ClipPath(
@@ -125,7 +125,7 @@ class teacherPannel extends StatelessWidget {
             height: 250,
             decoration: BoxDecoration(
                 gradient: LinearGradient(
-                    colors: [Color(0x44ff3a5a), Color(0x44fe494d)])),
+                    colors: [Color(0xae65ff3a), Color(0xb26afe49)])),
           ),
         ),
         ClipPath(
@@ -144,15 +144,16 @@ class teacherPannel extends StatelessWidget {
                         fontWeight: FontWeight.bold, fontSize: 20.0),
                   ),
                   trailing: CircleAvatar(
-                    radius: 25.0,
-                    backgroundImage: AssetImage(image1),
+                    child: Icon(Icons.perm_identity_sharp),
+                    backgroundColor: Colors.blue,
+                    radius: 30.0,
                   ),
                 ),
                 const SizedBox(height: 10.0),
                 Padding(
                   padding: const EdgeInsets.only(left: 16.0),
                   child: Text(
-                    "Teacher Name",
+                    "Teacher",
                     style: whiteText.copyWith(
                       fontSize: 18.0,
                       fontWeight: FontWeight.w500,
@@ -173,7 +174,7 @@ class teacherPannel extends StatelessWidget {
             height: 250,
             decoration: BoxDecoration(
                 gradient: LinearGradient(
-                    colors: [Color(0xffff3a5a), Color(0xfffe494d)])),
+                    colors: [Color(0xff39c102), Color(0xff71e544)])),
           ),
         ),
       ],

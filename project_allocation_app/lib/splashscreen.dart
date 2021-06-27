@@ -1,6 +1,8 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:project_allocation_app/home.dart';
+import 'package:project_allocation_app/login.dart';
+import 'package:project_allocation_app/login_option.dart';
 //import 'package:project_allocation_app/home.dart';
 //import 'package:project_allocation_app/Account_Home.dart';
 import 'package:project_allocation_app/up_retrieve.dart';
@@ -15,7 +17,7 @@ class _splashscreenState extends State<splashscreen> {
   @override
   void initState() {
     super.initState();
-    Timer(Duration(seconds: 3), () {
+    Timer(Duration(seconds: 10), () {
       Navigator.of(context).pushReplacement(MaterialPageRoute(
         builder: (context) => HomeScreen(), //ret_pdf(), //HomeScreen(),
       ));
@@ -60,10 +62,13 @@ class _splashscreenState extends State<splashscreen> {
             radius: 87,
             backgroundColor: Colors.black,
             child: CircleAvatar(
+              child: Icon(
+                Icons.business,
+                size: 75.0,
+                color: Color(0xFFFFC83E),
+              ),
               backgroundColor: Colors.white,
-              radius: 85,
-              backgroundImage:
-                  AssetImage('img/65ba488626025cff82f091336fbf94bb.gif'),
+              radius: 82.0,
             ),
           ),
           SizedBox(
